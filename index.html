@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manger</title>
+
+
+
+    <!-- aos style file -->
+    <link rel="stylesheet" href="css/aos.css">
+    <!-- fontawsome style file -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- bootstrap style file -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- custom style file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="overflow-hidden">
+    <!-- ==================== start home component ==================== -->
+    <section id="welcome-page-component" class="vh-100 d-flex justify-content-center align-items-center flex-column position-absolute w-100 overflow-hidden ">
+            <div class="container">
+                <div class="welcome-page-content">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="welcome-page-text h-100 d-flex justify-content-md-center flex-column text-white" data-aos="fade-right" data-aos-delay="170">
+                                <h1 class="mb-3 w-fit">
+                                    TO-DO List
+                                    <i class="fas fa-tasks ms-1"></i>
+                                    </h1>
+                                <h4 class="mt-3 mb-4">
+                                    Manage & Organize your tasks like a professionals and don't waste your time again
+                                    <i class="far fa-smile-wink fa-1x"></i>
+                                </h4>
+                                <div class="btns mt-2">
+                                    <button data-target="#starting-modal">Get Started</button>
+                                    <button data-target="#info-modal">More Info</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="welcome-page-banner text-center mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="170">
+                                <!-- <img src="assets/img/todo.jpg" alt="welcome banner" class=" img-fluid w-75 rounded-3"> -->
+                                <img src="assets/img/todo-removebg-preview.png" alt="welcome banner" class=" img-fluid w-75 rounded-3">
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+            </div>
+
+            <!-- ============= start info modal ============= -->
+            <div id="info-modal" class="modal position-absolute h-100 w-100" >
+                <div class="modal-content">
+                    <h2>TO-DO List Application</h2>
+                    <p>Language: HTML, SCSS, Vanilla JS, Bootstrap</p>
+                    <p>Libraries: Fontawesome, AOS</p>
+                    <p>Source Code: <a href="#">Github Repo</a></p>
+                    <p>Made By: <a href="https://ahmedsherif20.github.io/portfolio/" target="_blank">Ahmed Sherif</a></p>
+                    <p class="text-center">All Rights reserved ©2021</p>
+
+                    <button class="modal-close-btn position-absolute d-flex justify-content-center align-items-center">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- ============= end info modal ============= -->
+            <!-- ============= start get-starting modal ============= -->
+            <div id="starting-modal" class="modal position-absolute h-100 w-100" >
+                <div class="modal-content">
+                    <h2 class="text-danger text-uppercase">
+                        Warning
+                        <i class="fas fa-exclamation"></i>
+                    </h2>
+                    <p>all Tasks you will add it will be local so you can't get it from other device or other browser.</p>
+                    <p>you will be to access your tasks anywhere soon god will.</p>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="agree-get-started">
+                        <label class="form-check-label" for="agree-get-started">I Agree</label>
+                    </div>
+
+                    <button class="modal-close-btn position-absolute d-flex justify-content-center align-items-center">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- ============= end get-starting modal ============= -->
+
+
+    </section>
+    <!-- ==================== end home component ==================== -->
+
+    <!-- ==================== start tasks component ==================== -->
+    <section id="tasks-page-component">
+        <div class="container">
+            <div class="today-date bg- text-center py-5"></div>
+
+
+        </div>
+    </section>
+    <!-- ==================== end tasks component ==================== -->
+
+
+
+    <!-- aos script file -->
+    <script src="js/aos.js"></script>
+    <!-- boostrap script file -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- custom script file -->
+    <script src="js/script.js"></script>
+</body>
+</html>

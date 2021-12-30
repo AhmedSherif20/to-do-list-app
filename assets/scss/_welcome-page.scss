@@ -1,0 +1,137 @@
+#welcome-page-component
+{
+    background-color: #3D2C8D;
+    transition: 0.3s;
+    inset: 0;
+    .welcome-page-content
+    {
+        .welcome-page-text
+        {
+            h1
+            {
+                font: {
+                    size: 50px;
+                    weight: 700;
+                };
+                -webkit-text-stroke-color: white;
+                -webkit-text-stroke-width: 1px;
+                color: transparent;
+                transition: 0.2s;
+                &:hover
+                {
+                    color: white;
+                }
+            }
+            h4
+            {
+                width: 85%;
+            }
+            .btns
+            {
+                button
+                {
+                    background-color: #916BBF;
+                    outline: none;
+                    border: 2px solid transparent;
+                    color: white;
+                    padding: 5px 10px;
+                    margin-right: 18px;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    border-radius: 3px;
+                    position: relative;
+                    transition: 0.5s all;
+                    &:hover
+                    {
+                        transform: translateY(-8px);
+                        box-shadow:0px 10px 30px 10px #916BBF;  
+                    }
+                }
+            }
+            
+        }
+        .welcome-page-banner
+        {
+            img
+            {
+                transition: 0.5s all;
+                position: relative;
+                animation: welcome-page-banner 5s 0s infinite ease-in-out;
+                bottom: 0;
+            }
+        }
+    }
+    .modal
+    {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s all;
+        z-index: 1;
+        .modal-content
+        {
+            background-color: white;
+            padding:  14px;
+            border-radius: 10px;
+            width: 500px;
+            max-width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        .modal-close-btn
+        {
+            top: 10px;
+            right: 8px;
+            background-color: transparent;
+            border: 1px solid rgba($color: grey, $alpha: 0.3);
+            outline: none;
+            color: #3D2C8D;
+            font-size: 20px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            opacity: 0.7;
+            transition: 0.2s;
+            &:hover
+            {
+                opacity: 1;
+                border-color: grey;
+            }
+        }
+    }
+    #info-modal
+    {
+    transform: translateX(100%);
+    }
+    #info-modal.show
+    {
+    transform: translateX(0%);
+    }
+    #starting-modal
+    {
+        opacity: 0;
+        visibility: hidden;
+    }
+    #starting-modal.show
+    {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+#welcome-page-component.started
+{
+    top: -100%;
+}
+@keyframes welcome-page-banner {
+    0%, 100%
+    {
+        bottom: 0;
+    }
+    50%
+    {
+    bottom: 20px;
+    }
+}
