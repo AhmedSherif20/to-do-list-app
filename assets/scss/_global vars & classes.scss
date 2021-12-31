@@ -3,3 +3,56 @@
 {
     width: fit-content !important;
 }
+.modal
+{
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s all;
+    z-index: 1;
+    .modal-content
+    {
+        background-color: white;
+        padding:  14px;
+        border-radius: 10px;
+        width: 500px;
+        max-width: 100%;
+        position: relative;
+        z-index: 2;
+        input, label
+        {
+            cursor: pointer;
+        }
+    }
+    .modal-close-btn
+    {
+        top: 10px;
+        right: 8px;
+        background-color: transparent;
+        border: 1px solid rgba($color: grey, $alpha: 0.3);
+        outline: none;
+        color: #3D2C8D;
+        font-size: 20px;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        opacity: 0.7;
+        transition: 0.2s;
+        i
+        {
+            transition: 0.2s;
+        }
+        &:hover
+        {
+            opacity: 1;
+            border-color: grey;
+            i
+            {
+                transform: rotateZ(90deg);
+            
+            }
+        }
+    }
+}

@@ -4,11 +4,11 @@ font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif;
 */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 /* ============== global classes for all project ============== */
@@ -16,57 +16,7 @@ h1, h2, h3, h4, h5, h6 {
   width: fit-content !important;
 }
 
-#welcome-page-component {
-  background-color: #3D2C8D;
-  transition: 0.3s;
-  inset: 0;
-}
-
-#welcome-page-component .welcome-page-content .welcome-page-text h1 {
-  font-size: 50px;
-  font-weight: 700;
-  -webkit-text-stroke-color: white;
-  -webkit-text-stroke-width: 1px;
-  color: transparent;
-  transition: 0.2s;
-}
-
-#welcome-page-component .welcome-page-content .welcome-page-text h1:hover {
-  color: white;
-}
-
-#welcome-page-component .welcome-page-content .welcome-page-text h4 {
-  width: 85%;
-}
-
-#welcome-page-component .welcome-page-content .welcome-page-text .btns button {
-  background-color: #916BBF;
-  outline: none;
-  border: 2px solid transparent;
-  color: white;
-  padding: 5px 10px;
-  margin-right: 18px;
-  text-transform: uppercase;
-  font-weight: 500;
-  border-radius: 3px;
-  position: relative;
-  transition: 0.5s all;
-}
-
-#welcome-page-component .welcome-page-content .welcome-page-text .btns button:hover {
-  transform: translateY(-8px);
-  box-shadow: 0px 10px 30px 10px #916BBF;
-}
-
-#welcome-page-component .welcome-page-content .welcome-page-banner img {
-  transition: 0.5s all;
-  position: relative;
-  animation: welcome-page-banner 5s 0s infinite ease-in-out;
-  bottom: 0;
-}
-
-#welcome-page-component .modal {
-  position: absolute;
+.modal {
   inset: 0;
   background-color: rgba(0, 0, 0, 0.7);
   display: flex;
@@ -75,8 +25,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.5s all;
   z-index: 1;
 }
-
-#welcome-page-component .modal .modal-content {
+.modal .modal-content {
   background-color: white;
   padding: 14px;
   border-radius: 10px;
@@ -85,12 +34,10 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 2;
 }
-
-#welcome-page-component .modal .modal-content input, #welcome-page-component .modal .modal-content label {
+.modal .modal-content input, .modal .modal-content label {
   cursor: pointer;
 }
-
-#welcome-page-component .modal .modal-close-btn {
+.modal .modal-close-btn {
   top: 10px;
   right: 8px;
   background-color: transparent;
@@ -104,33 +51,70 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.7;
   transition: 0.2s;
 }
-
-#welcome-page-component .modal .modal-close-btn i {
+.modal .modal-close-btn i {
   transition: 0.2s;
 }
-
-#welcome-page-component .modal .modal-close-btn:hover {
+.modal .modal-close-btn:hover {
   opacity: 1;
   border-color: grey;
 }
-
-#welcome-page-component .modal .modal-close-btn:hover i {
+.modal .modal-close-btn:hover i {
   transform: rotateZ(90deg);
 }
 
+#welcome-page-component {
+  background-color: #3D2C8D;
+  transition: 0.3s;
+  inset: 0;
+  z-index: 9999;
+}
+#welcome-page-component .welcome-page-content .welcome-page-text h1 {
+  font-size: 50px;
+  font-weight: 700;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 1px;
+  color: transparent;
+  transition: 0.2s;
+}
+#welcome-page-component .welcome-page-content .welcome-page-text h1:hover {
+  color: white;
+}
+#welcome-page-component .welcome-page-content .welcome-page-text h4 {
+  width: 85%;
+}
+#welcome-page-component .welcome-page-content .welcome-page-text .btns button {
+  background-color: #916BBF;
+  outline: none;
+  border: 2px solid transparent;
+  color: white;
+  padding: 5px 10px;
+  margin-right: 18px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 3px;
+  position: relative;
+  transition: 0.5s all;
+}
+#welcome-page-component .welcome-page-content .welcome-page-text .btns button:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 10px 30px 10px #916BBF;
+}
+#welcome-page-component .welcome-page-content .welcome-page-banner img {
+  transition: 0.5s all;
+  position: relative;
+  animation: welcome-page-banner 5s 0s infinite ease-in-out;
+  bottom: 0;
+}
 #welcome-page-component #info-modal {
   transform: translateX(100%);
 }
-
 #welcome-page-component #info-modal.show {
   transform: translateX(0%);
 }
-
 #welcome-page-component #starting-modal {
   opacity: 0;
   visibility: hidden;
 }
-
 #welcome-page-component #starting-modal.show {
   opacity: 1;
   visibility: visible;
@@ -148,7 +132,6 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 20px;
   }
 }
-
 #tasks-page-component {
   min-height: 100vh;
   background: #4568DC;
@@ -156,4 +139,68 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(to right, #B06AB3, #4568DC);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-/*# sourceMappingURL=style.css.map */
+
+#tasks-page-component .add-task #add-task-data-modal {
+  transform: rotateX(90deg);
+}
+#tasks-page-component .add-task #add-task-data-modal h2 {
+  background-image: linear-gradient(to right, #B06AB3, #4568DC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 32px;
+}
+#tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input {
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 5px;
+  position: relative;
+  margin-top: 24px;
+}
+#tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input input {
+  height: 50px;
+  outline: none;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  width: 300px;
+  max-width: 100%;
+  border-radius: 5px;
+  padding-left: 8px;
+}
+#tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input textarea {
+  min-width: 300px;
+  min-height: 40px;
+  height: 50px;
+  outline: none;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  border-radius: 5px;
+}
+#tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input label {
+  position: absolute;
+  opacity: 0.7;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  transition: 0.3s all;
+  font-size: 18px;
+  font-weight: 500;
+}
+#tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input label::selection {
+  background-color: transparent;
+}
+#tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input input:focus ~ label, #tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input textarea:focus ~ label, #tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input .has-data ~ label {
+  font-size: 14px;
+  top: -7px;
+  color: #5A68D4;
+  opacity: 1;
+}
+#tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input button {
+  background-color: #5A68D4 !important;
+  border-color: #5A68D4;
+  font-size: 18px;
+}
+#tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input button:focus {
+  box-shadow: 0 0 0 0.25rem rgba(90, 104, 212, 0.5);
+}
+#tasks-page-component .add-task #add-task-data-modal.show {
+  visibility: visible;
+  transform: rotateX(0deg);
+}/*# sourceMappingURL=style.css.map */

@@ -2,7 +2,7 @@
 AOS.init();
 
 // ========== open and close modal script ==========
-let modalBtn = document.querySelectorAll("#welcome-page-component .welcome-page-content .welcome-page-text .btns button"),
+let modalBtn = document.querySelectorAll(".modal-btn"),
     modalBtnsArray = Array.from(modalBtn),
     modalCloseBtn = document.querySelectorAll(".modal-close-btn"),
     modalCloseBtnsArray = Array.from(modalCloseBtn)
@@ -36,3 +36,26 @@ let todayDate = new Date(),
 
 todayDateDiv.innerHTML = `<h2 class="text-white fw-bold">${days[todayDate.getDay()]}</h2>
                         <p class="text-white-50">${month[todayDate.getMonth()]} ${todayDate.getDate()}, ${todayDate.getFullYear()}</p>`
+
+
+// ========== input label script ==========
+let taskDetailsInputs = document.querySelectorAll(".task-details-input input"),
+    taskDetailsTextArea = document.querySelector(".task-details-input textarea"),
+    taskSubmitBtn = document.querySelector(".task-details-input button")
+taskSuccessfullyAlert = document.querySelector(".task-details-input span")
+taskDetailsInputs.forEach(input => {
+    input.addEventListener("focusout", _ => {
+        input.value ? input.classList.add("has-data") : input.classList.remove("has-data");
+    })
+})
+taskDetailsTextArea.addEventListener("focusout", _ => {
+    taskDetailsTextArea.value ? taskDetailsTextArea.classList.add("has-data") : taskDetailsTextArea.classList.remove("has-data");
+
+})
+taskSubmitBtn.onclick = _ => {
+    taskSuccessfullyAlert.classList.replace("d-none", "d-inline")
+    setTimeout(_ => {
+        document.querySelector("#add-task-data-modal").classList.remove("show");
+        taskSuccessfullyAlert.classList.replace("d-inline", "d-none")
+    }, 500)
+}

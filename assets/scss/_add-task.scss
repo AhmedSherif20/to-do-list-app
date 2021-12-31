@@ -1,0 +1,93 @@
+#tasks-page-component
+{
+    .add-task
+    {
+        #add-task-data-modal
+        {
+            transform: rotateX(90deg);
+            
+            h2
+            {
+                background-image: linear-gradient(to right,#B06AB3, #4568DC);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font: {
+                    size: 32px;
+                };
+            } 
+            
+            .task-details
+            {
+                .task-details-input
+                {
+                    width: fit-content ;
+                    margin-bottom: 12px;
+                    padding: 5px;
+                    position: relative;
+                    margin-top: 24px;
+                    input
+                    {
+                        height: 50px;
+                        outline: none;
+                        border: 1px solid rgba($color: grey, $alpha: 0.5);
+                        width: 300px;
+                        max-width: 100%;
+                        border-radius: 5px;
+                        padding-left: 8px ;
+                    }
+                    textarea
+                    {
+                        min-width: 300px;
+                        min-height: 40px ;
+                        height: 50px;
+                        outline: none;
+                        border: 1px solid rgba($color: grey, $alpha: 0.5);
+                        border-radius: 5px;
+                    }
+                    label
+                    {
+                        position: absolute;
+                        opacity: 0.7;
+                        top: 50%;
+                        left: 10px;
+                        transform: translateY(-50%);
+                        transition: 0.3s all;
+                        font: {
+                            size: 18px;
+                            weight: 500;
+                        };
+                        &::selection
+                        {
+                            background-color: transparent;
+                        }
+                    }
+                    input:focus ~ label , textarea:focus ~ label , .has-data ~ label 
+                    {
+                        font-size: 14px;
+                        top: -7px;
+                        color: #5A68D4;
+                        opacity: 1;
+                    }
+
+                    button
+                    {
+                        background-color: #5A68D4 !important ;
+                        border-color: #5A68D4;  
+                        font-size: 18px;
+                        &:focus
+                        {
+                            box-shadow: 0 0 0 0.25rem rgba($color: #5A68D4, $alpha: 0.5);
+                        }
+                    }
+                }
+            }
+
+        }
+        #add-task-data-modal.show 
+        {
+            visibility: visible;
+            transform: rotateX(0deg);
+        }        
+    }
+
+}
