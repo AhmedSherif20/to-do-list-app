@@ -35,4 +35,4 @@ let todayDate = new Date(),
     todayDateDiv = document.querySelector(".today-date")
 
 todayDateDiv.innerHTML = `<h2 class="text-white fw-bold">${days[todayDate.getDay()]}</h2>
-                        <p class="text-white">${month[todayDate.getMonth()]} ${todayDate.getDate()}, ${todayDate.getFullYear()}</p>`
+                        <p class="text-white-50">${month[todayDate.getMonth()]} ${todayDate.getDate()}, ${todayDate.getFullYear()}</p>`

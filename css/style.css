@@ -86,6 +86,10 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 2;
 }
 
+#welcome-page-component .modal .modal-content input, #welcome-page-component .modal .modal-content label {
+  cursor: pointer;
+}
+
 #welcome-page-component .modal .modal-close-btn {
   top: 10px;
   right: 8px;
@@ -101,9 +105,17 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.2s;
 }
 
+#welcome-page-component .modal .modal-close-btn i {
+  transition: 0.2s;
+}
+
 #welcome-page-component .modal .modal-close-btn:hover {
   opacity: 1;
   border-color: grey;
+}
+
+#welcome-page-component .modal .modal-close-btn:hover i {
+  transform: rotateZ(90deg);
 }
 
 #welcome-page-component #info-modal {

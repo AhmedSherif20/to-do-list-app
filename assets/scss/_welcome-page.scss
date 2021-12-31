@@ -80,6 +80,10 @@
             max-width: 100%;
             position: relative;
             z-index: 2;
+            input, label
+            {
+                cursor: pointer;
+            }
         }
         .modal-close-btn
         {
@@ -95,10 +99,19 @@
             height: 30px;
             opacity: 0.7;
             transition: 0.2s;
+            i
+            {
+                transition: 0.2s;
+            }
             &:hover
             {
                 opacity: 1;
                 border-color: grey;
+                i
+                {
+                    transform: rotateZ(90deg);
+                
+                }
             }
         }
     }
@@ -123,7 +136,7 @@
 }
 #welcome-page-component.started
 {
-    top: -100%;
+    top: -120%;
 }
 @keyframes welcome-page-banner {
     0%, 100%
