@@ -2,6 +2,10 @@
 {
     .add-task
     {
+        .btns
+        {
+            border-bottom: 1px solid rgba($color: white, $alpha: 0.3);
+        }
         #add-task-data-modal
         {
             transform: rotateX(90deg);

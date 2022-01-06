@@ -1,0 +1,81 @@
+#display-tasks
+{
+    h2
+    {
+        &::after
+        {
+            content: "";
+            background-color: rgba($color: white, $alpha: 0.6);
+            width: 40%;
+            height: 2px;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            transition: 0.4s;
+            border-radius: 5px;
+        }
+        &:hover
+        {
+            &::after
+            {
+                width: 75%;
+                background-color: white;
+            }
+        }
+    }
+    #tasks
+    {
+        min-width: 300px;
+        width: 600px;
+        max-width: 100%;
+        .task
+        {
+            margin-bottom: 12px;
+            .task-info
+            {
+                background-color: white;
+                .task-btns
+                {
+                    display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: row;
+                    i
+                    {
+                        width: 50px;
+                        height: 44px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        color: white;
+                        font-size: 24px;
+                        border-radius: 5px;
+                        cursor: pointer;
+
+                    }
+                    .task-done
+                    {
+                        background-color: green;
+                    }
+                    .task-delete
+                    {
+                        background-color: rgba($color: red, $alpha: 0.8);
+                    }
+                }
+            }
+        }
+        .task.done
+        {
+            .task-info
+            {
+                opacity: 0.7;
+                h4
+                {
+                    text-decoration: line-through;
+                }
+            }
+        }
+    }
+}

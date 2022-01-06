@@ -19,7 +19,7 @@
 </head>
 <body class="overflow-hidden">
     <!-- ==================== start home component ==================== -->
-    <section id="welcome-page-component" class="vh-100 d-flex justify-content-center align-items-center flex-column position-absolute w-100 overflow-hidden ">
+    <section id="welcome-page-component" class="started vh-100 d-flex justify-content-center align-items-center flex-column position-absolute w-100 overflow-hidden ">
             <div class="container">
                 <div class="welcome-page-content">
                     <div class="row">
@@ -101,7 +101,7 @@
             <section class="add-task">
 
                 <!-- open add task form modal btn -->
-                <div class="text-center">
+                <div class="btns text-center  pb-5 mb-4">
                     <button id="add-task-btn" data-target="#add-task-data-modal" class="btn btn-outline-light modal-btn mx-auto"">Add Your Tasks</button>
                 </div>
 
@@ -140,6 +140,42 @@
                 
             </section>
 
+            <!-- ===== display tasks section ===== -->
+            <section id="display-tasks">
+                <!-- ===== title ===== -->
+                <h2 class="text-center text-white fw-bold my-4 w-fit mx-auto position-relative pb-3">Your Tasks</h2>
+
+                <!-- ===== title ===== -->
+                <div id="tasks" class=" mx-auto my-4">
+                    <div class="task">
+                        <div class="task-info d-flex justify-content-between align-items-center p-2 rounded-2">
+                            <h4 class=" m-0 text-capitalize">My homework</h4>
+                            <div class="task-btns">
+                                <i class="fas fa-check task-done me-1"></i>
+                                <i class="far fa-trash-alt task-delete"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-info d-flex justify-content-between align-items-center p-2 rounded-2">
+                            <h4 class=" m-0 text-capitalize">My school</h4>
+                            <div class="task-btns">
+                                <i class="fas fa-check task-done me-1"></i>
+                                <i class="far fa-trash-alt task-delete"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task done">
+                        <div class="task-info d-flex justify-content-between align-items-center p-2 rounded-2">
+                            <h4 class=" m-0 text-capitalize">My Collage</h4>
+                            <div class="task-btns">
+                                <i class="fas fa-check task-done me-1"></i>
+                                <i class="far fa-trash-alt task-delete"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </section>
     <!-- ==================== end tasks component ==================== -->
