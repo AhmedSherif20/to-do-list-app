@@ -40,8 +40,8 @@ todayDateDiv.innerHTML = `<h2 class="text-white fw-bold">${days[todayDate.getDay
 // ========== input label script ==========
 let taskDetailsInputs = document.querySelectorAll(".task-details-input input"),
     taskDetailsTextArea = document.querySelector(".task-details-input textarea"),
-    taskSubmitBtn = document.querySelector(".task-details-input button")
-taskSuccessfullyAlert = document.querySelector(".task-details-input span")
+    taskSubmitBtn = document.querySelector(".task-details-input button"),
+    taskSuccessfullyAlert = document.querySelector(".task-details-input span")
 taskDetailsInputs.forEach(input => {
     input.addEventListener("focusout", _ => {
         input.value ? input.classList.add("has-data") : input.classList.remove("has-data");
@@ -55,6 +55,8 @@ taskSubmitBtn.onclick = _ => {
     setTimeout(_ => {
         document.querySelector("#add-task-data-modal").classList.remove("show");
         taskSuccessfullyAlert.classList.replace("d-inline", "d-none")
+        taskDetailsInputs.forEach(input => input.classList.remove("has-data"))
+        taskDetailsTextArea.forEach(input => input.classList.remove("has-data"))
     }, 250)
     mainTaskFunction()
 }
@@ -66,11 +68,13 @@ let taskNameInput = document.getElementById("task-name-in"),
     taskDisplayDiv = document.getElementById("tasks"),
     taskEmptyAlert = document.getElementById("noTaskAlert"),
     taskDoneBtns = null /* prototype initialization will change after display*/,
+    taskDeleteBtns = null /* prototype initialization will change after display*/,
     tasksContainer;
 
 // check old or new user
 localStorage.getItem("tasks") == null ? tasksContainer = [] : tasksContainer = JSON.parse(localStorage.getItem("tasks"))
-localStorage.getItem("tasks") == null ? taskEmptyAlert.classList.replace("d-none", "d-block") : taskEmptyAlert.classList.replace("d-block", "d-none")
+tasksContainer.length > 0 ? taskEmptyAlert.classList.replace("d-block", "d-none") : taskEmptyAlert.classList.replace("d-none", "d-block")
+
 // ==== main task class to inhernace for other tasks => oop =====
 class Task {
     constructor(name, cate, detail) {
@@ -108,23 +112,24 @@ function displayTasks() {
     for (let i = 0; i < tasksContainer.length; i++) {
         taskDisplayContainer += `
         
-        <div class="task">
+        <div class="task" task-id="${i}">
                         <div class="task-info task-show d-flex justify-content-between align-items-center p-2 rounded-2">
-                            <h4 class=" m-0 text-capitalize">${i + 1}- ${tasksContainer[i].name}</h4>
+                            <h4 class=" m-0 text-capitalize position-relative">${i + 1}- ${tasksContainer[i].name}</h4>
                             <div class="task-btns">
                                 <i class="fas fa-check task-done me-1"></i>
-                                <i class="far fa-trash-alt task-delete"></i>
+                                <i class="far fa-trash-alt task-delete" task-id="${i}"></i>
                             </div>
                         </div>
                 </div>`
     }
     taskDisplayDiv.innerHTML = taskDisplayContainer
-    taskDoneBtnsf()
+    doneTask()
+    deleteTask()
 }
 window.onload = displayTasks()
 
 // ===== task done part  =====
-function taskDoneBtnsf() { /*! get all buttons after display */
+function doneTask() { /*! get all buttons after display */
     taskDoneBtns = document.querySelectorAll("#tasks .task .task-btns .task-done")
     taskDoneBtns.forEach(btn => {
         btn.onclick = e => {
@@ -134,4 +139,18 @@ function taskDoneBtnsf() { /*! get all buttons after display */
     })
 }
 
+// ===== task delete part =====
+function deleteTask() {
+    taskDeleteBtns = document.querySelectorAll("#tasks .task .task-btns .task-delete")
+    taskDeleteBtns.forEach(btn => {
+        btn.onclick = e => {
+            let TaskDeleteId = e.target.getAttribute("task-id");
+            tasksContainer.splice(TaskDeleteId, 1)
+            displayTasks()
+            localStorage.setItem("tasks", JSON.stringify(tasksContainer))
+
+        }
+    })
+    tasksContainer.length > 0 ? taskEmptyAlert.classList.replace("d-block", "d-none") : taskEmptyAlert.classList.replace("d-none", "d-block")
+}
 

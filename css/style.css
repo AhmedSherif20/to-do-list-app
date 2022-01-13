@@ -237,6 +237,18 @@ h1, h2, h3, h4, h5, h6 {
   background-color: white;
   position: relative;
 }
+#display-tasks #tasks .task .task-info h4::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 3px;
+  width: 0%;
+  background-color: red;
+  transition: 0.3s;
+  border-radius: 5px;
+}
 #display-tasks #tasks .task .task-info .task-btns {
   display: flex;
   justify-content: center;
@@ -264,8 +276,8 @@ h1, h2, h3, h4, h5, h6 {
 #display-tasks #tasks .task.done .task-info {
   opacity: 0.7;
 }
-#display-tasks #tasks .task.done .task-info h4 {
-  text-decoration: line-through;
+#display-tasks #tasks .task.done .task-info h4::before {
+  width: 100%;
 }
 #display-tasks #tasks .task-show {
   animation: taskShow 0.5s 0s 1 linear;
