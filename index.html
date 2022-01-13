@@ -19,7 +19,7 @@
 </head>
 <body class="overflow-hidden">
     <!-- ==================== start home component ==================== -->
-    <section id="welcome-page-component" class="vh-100 d-flex justify-content-center align-items-center flex-column position-absolute w-100 overflow-hidden ">
+    <section id="welcome-page-component" class="started vh-100 d-flex justify-content-center align-items-center flex-column position-absolute w-100 overflow-hidden ">
             <div class="container">
                 <div class="welcome-page-content">
                     <div class="row">
@@ -113,16 +113,16 @@
                         <div class="task-details">
 
                             <div class="task-details-input">
-                                <input type="text" name="task-name" id="task-name">
-                                <label for="task-name">Task Name</label>
+                                <input type="text" name="task-name" id="task-name-in">
+                                <label for="task-name-in">Task Name</label>
                             </div>
                             <div class="task-details-input">
-                                <input type="text" name="task-category" id="task-category">
-                                <label for="task-category">Task Category</label>
+                                <input type="text" name="task-category" id="task-category-in">
+                                <label for="task-category-in">Task Category</label>
                             </div>
                             <div class="task-details-input">
-                                <textarea name="task-detail" id="task-detail"></textarea>
-                                <label for="task-detail">Task Details (optional)</label>
+                                <textarea name="task-detail" id="task-detail-in"></textarea>
+                                <label for="task-detail-in">Task Details (optional)</label>
                             </div>
                             <div class="task-details-input">
                                 <button id="submit-task-btn" class="btn btn-success">Submit</button>
@@ -146,34 +146,12 @@
                 <h2 class="text-center text-white fw-bold my-4 w-fit mx-auto position-relative pb-3">Your Tasks</h2>
 
                 <!-- ===== title ===== -->
+                <h2 id="noTaskAlert" class="my-5 text-center text-capitalize h4 alert alert-warning d-block w-fit px-5 mx-auto">
+                    no tasks added yet 
+                    <i class="fas fa-exclamation ms-1"></i>
+                </h2>
                 <div id="tasks" class=" mx-auto my-4">
-                    <div class="task">
-                        <div class="task-info d-flex justify-content-between align-items-center p-2 rounded-2">
-                            <h4 class=" m-0 text-capitalize">My homework</h4>
-                            <div class="task-btns">
-                                <i class="fas fa-check task-done me-1"></i>
-                                <i class="far fa-trash-alt task-delete"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="task">
-                        <div class="task-info d-flex justify-content-between align-items-center p-2 rounded-2">
-                            <h4 class=" m-0 text-capitalize">My school</h4>
-                            <div class="task-btns">
-                                <i class="fas fa-check task-done me-1"></i>
-                                <i class="far fa-trash-alt task-delete"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="task done">
-                        <div class="task-info d-flex justify-content-between align-items-center p-2 rounded-2">
-                            <h4 class=" m-0 text-capitalize">My Collage</h4>
-                            <div class="task-btns">
-                                <i class="fas fa-check task-done me-1"></i>
-                                <i class="far fa-trash-alt task-delete"></i>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </section>
         </div>

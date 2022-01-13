@@ -228,12 +228,14 @@ h1, h2, h3, h4, h5, h6 {
   min-width: 300px;
   width: 600px;
   max-width: 100%;
+  min-height: 100px;
 }
 #display-tasks #tasks .task {
   margin-bottom: 12px;
 }
 #display-tasks #tasks .task .task-info {
   background-color: white;
+  position: relative;
 }
 #display-tasks #tasks .task .task-info .task-btns {
   display: flex;
@@ -264,4 +266,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 #display-tasks #tasks .task.done .task-info h4 {
   text-decoration: line-through;
+}
+#display-tasks #tasks .task-show {
+  animation: taskShow 0.5s 0s 1 linear;
+}
+
+@keyframes taskShow {
+  0% {
+    top: 30px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
 }/*# sourceMappingURL=style.css.map */

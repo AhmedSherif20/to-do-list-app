@@ -29,12 +29,14 @@
         min-width: 300px;
         width: 600px;
         max-width: 100%;
+        min-height: 100px;
         .task
         {
             margin-bottom: 12px;
             .task-info
             {
                 background-color: white;
+                position: relative;
                 .task-btns
                 {
                     display: flex;
@@ -77,5 +79,19 @@
                 }
             }
         }
+        .task-show
+        {
+            animation: taskShow 0.5s 0s 1 linear;
+        }
+    }
+}
+@keyframes taskShow{
+    0%{
+        top: 30px;
+        opacity: 0;
+    }
+    100%{
+        top: 0;
+        opacity: 1;
     }
 }
