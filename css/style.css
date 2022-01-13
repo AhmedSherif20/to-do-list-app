@@ -245,7 +245,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-50%);
   height: 3px;
   width: 0%;
-  background-color: red;
+  background: linear-gradient(to right, #4568DC, #B06AB3);
   transition: 0.3s;
   border-radius: 5px;
 }
