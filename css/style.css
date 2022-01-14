@@ -240,9 +240,8 @@ h1, h2, h3, h4, h5, h6 {
 #display-tasks #tasks .task .task-info h4::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: calc(50% - 1.5px);
   left: 0;
-  transform: translateY(-50%);
   height: 3px;
   width: 0%;
   background: linear-gradient(to right, #4568DC, #B06AB3);
