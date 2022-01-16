@@ -178,7 +178,6 @@ function deleteTask() {
 }
 
 // ===== task input validation =====
-
 const taskNameInvalidAlert = document.getElementById("taskNameInvalid"),
     taskNameEmptyAlert = document.getElementById("taskNameEmpty"),
     taskCategoryInvalidAlert = document.getElementById("taskCategoryInvalid"),
@@ -188,6 +187,8 @@ const taskNameInvalidAlert = document.getElementById("taskNameInvalid"),
 // ===== task name input empty and value validation =====
 taskNameInput.onblur = _ => {
     taskNameInput.value == "" ? taskInputEmpty(taskNameEmptyAlert, taskNameInvalidAlert) : TaskInputRegexTest(taskNameInput, taskNameEmptyAlert, taskNameInvalidAlert);
+    // ======= enable and disable submit task button =======
+    taskInputRegex.test(taskNameInput.value) && taskInputRegex.test(taskCategoryInput.value) ? taskSubmitBtn.disabled = false : taskSubmitBtn.disabled = true;
 }
 // ===== task cate input empty and value validation =====
 taskCategoryInput.onblur = _ => {
