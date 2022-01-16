@@ -115,23 +115,27 @@
                             <div class="task-details-input">
                                 <input type="text" name="task-name" id="task-name-in">
                                 <label for="task-name-in">Task Name</label>
+                                <span id="taskNameInvalid" class="text-danger ms-2 d-none">Invaild Name*</span>
+                                <span id="taskNameEmpty" class="text-danger ms-2 d-none">Required Input*</span>
                             </div>
                             <div class="task-details-input">
                                 <input type="text" name="task-category" id="task-category-in">
                                 <label for="task-category-in">Task Category</label>
+                                <span id="taskCategoryInvalid" class="text-danger ms-2 d-none">Invaild Category*</span>
+                                <span id="taskCategoryEmpty" class="text-danger ms-2 d-none">Required Input*</span>
                             </div>
                             <div class="task-details-input">
                                 <textarea name="task-detail" id="task-detail-in"></textarea>
                                 <label for="task-detail-in">Task Details (optional)</label>
                             </div>
                             <div class="task-details-input">
-                                <button id="submit-task-btn" class="btn btn-success">Submit</button>
+                                <button id="submit-task-btn" class="btn btn-success" disabled>Submit</button>
                                 <span class=" text-success ms-3 fw-bold d-none">Task Added Successfully</span>
                             </div>
                             
                         </div>
 
-                        <button class="modal-close-btn position-absolute d-flex justify-content-center align-items-center">
+                        <button type="button" class="modal-close-btn position-absolute d-flex justify-content-center align-items-center">
                             <i class="fas fa-times"></i>
                         </button>
 
@@ -145,7 +149,7 @@
                 <!-- ===== title ===== -->
                 <h2 class="text-center text-white fw-bold my-4 w-fit mx-auto position-relative pb-3">Your Tasks</h2>
 
-                <!-- ===== title ===== -->
+                <!-- ===== tasks form JavaScript ===== -->
                 <h2 id="noTaskAlert" class="my-5 text-center text-capitalize h4 alert alert-warning d-block w-fit px-5 mx-auto">
                     no tasks added yet 
                     <i class="fas fa-exclamation ms-1"></i>
@@ -157,8 +161,6 @@
         </div>
     </section>
     <!-- ==================== end tasks component ==================== -->
-
-
 
     <!-- aos script file -->
     <script src="js/aos.js"></script>

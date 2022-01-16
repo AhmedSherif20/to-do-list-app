@@ -22,6 +22,7 @@ agreeBtn.onclick = _ => {
     if (agreeBtn.checked) {
         startedComponent.classList.add("started");
         document.body.classList.remove("overflow-hidden")
+
     } else {
         startedComponent.classList.remove("started");
         document.body.classList.add("overflow-hidden")
@@ -50,6 +51,7 @@ taskDetailsInputs.forEach(input => {
 taskDetailsTextArea.addEventListener("focusout", _ => {
     taskDetailsTextArea.value ? taskDetailsTextArea.classList.add("has-data") : taskDetailsTextArea.classList.remove("has-data");
 })
+//taskSubmitBtn.disabled = true /* to check inputs value with regex before submit => line 179 */
 taskSubmitBtn.onclick = _ => {
     taskSuccessfullyAlert.classList.replace("d-none", "d-inline")
     setTimeout(_ => {
@@ -59,6 +61,7 @@ taskSubmitBtn.onclick = _ => {
         taskDetailsTextArea.classList.remove("has-data")
     }, 250)
     mainTaskFunction()
+    taskSubmitBtn.disabled = true /* disable it again after task added */
 }
 
 // ========== add task script ==========
@@ -127,7 +130,7 @@ function displayTasks() {
     doneTask()
     deleteTask()
     tasks = document.querySelectorAll("#tasks .task")
-    taskFinishedAttr() /* i called it here to check after every display */
+    //taskFinishedAttr() /* i called it here to check after every display */
 
 }
 window.onload = _ => { displayTasks(); taskFinishedAttr()/* i called it here to check automatic when load app */ }
@@ -173,3 +176,45 @@ function deleteTask() {
     })
     tasksContainer.length > 0 ? taskEmptyAlert.classList.replace("d-block", "d-none") : taskEmptyAlert.classList.replace("d-none", "d-block")
 }
+
+// ===== task input validation =====
+
+const taskNameInvalidAlert = document.getElementById("taskNameInvalid"),
+    taskNameEmptyAlert = document.getElementById("taskNameEmpty"),
+    taskCategoryInvalidAlert = document.getElementById("taskCategoryInvalid"),
+    taskCategoryEmptyAlert = document.getElementById("taskCategoryEmpty"),
+    taskInputRegex = /^[a-z ,.'-]+$/i;
+
+// ===== task name input empty and value validation =====
+taskNameInput.onblur = _ => {
+    taskNameInput.value == "" ? taskInputEmpty(taskNameEmptyAlert, taskNameInvalidAlert) : TaskInputRegexTest(taskNameInput, taskNameEmptyAlert, taskNameInvalidAlert);
+}
+// ===== task cate input empty and value validation =====
+taskCategoryInput.onblur = _ => {
+    taskCategoryInput.value == "" ? taskInputEmpty(taskCategoryEmptyAlert, taskCategoryInvalidAlert) : TaskInputRegexTest(taskCategoryInput, taskCategoryEmptyAlert, taskCategoryInvalidAlert);
+    // ======= enable and disable submit task button =======
+    taskInputRegex.test(taskNameInput.value) && taskInputRegex.test(taskCategoryInput.value) ? taskSubmitBtn.disabled = false : taskSubmitBtn.disabled = true;
+}
+
+// main validation function test
+function TaskInputRegexTest(input, inputEmptyAlert, inputRegexALert) {
+    inputEmptyAlert.classList.replace("d-inline", "d-none")
+    taskInputRegex.test(input.value) ? taskInputValid(inputRegexALert) : taskInputInvalid(inputRegexALert)
+}
+
+// function to test input with parameters to don't repeat code again 
+// call it after regex test return true of false 
+/* ----- empty f ----- */
+function taskInputEmpty(inputAlert, inputHidden) {
+    inputAlert.classList.replace("d-none", "d-inline")
+    inputHidden.classList.replace("d-inline", "d-none")
+}
+/* ----- Valid f ----- */
+function taskInputValid(inputAlert) {
+    inputAlert.classList.replace("d-inline", "d-none")
+}
+/* ----- Invalid f ----- */
+function taskInputInvalid(inputAlert) {
+    inputAlert.classList.replace("d-none", "d-inline")
+}
+
