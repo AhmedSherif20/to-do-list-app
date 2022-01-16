@@ -154,10 +154,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 #tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input {
   width: fit-content;
-  margin-bottom: 12px;
+  margin: 24px 0 32px 0;
   padding: 5px;
   position: relative;
-  margin-top: 24px;
 }
 #tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input input {
   height: 50px;
@@ -194,6 +193,11 @@ h1, h2, h3, h4, h5, h6 {
   top: -7px;
   color: #5A68D4;
   opacity: 1;
+}
+#tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input span {
+  position: absolute;
+  top: 101%;
+  right: 4px;
 }
 #tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input button {
   background-color: #5A68D4 !important;
