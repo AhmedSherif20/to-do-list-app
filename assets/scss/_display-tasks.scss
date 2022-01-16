@@ -96,6 +96,19 @@
                         width: 100%;
 
                     }
+                    &::after
+                    {
+                        content: "done";
+                        position: absolute;
+                        left: calc(100% + 10px);
+                        top: 50%;
+                        transform: translateY(-50%);
+                        font: {
+                            style: italic;
+                            size: 16px;
+                            weight: 500
+                        };
+                    }
                 }
             }
         }

@@ -198,6 +198,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   top: 101%;
   right: 4px;
+  font-size: 13px;
 }
 #tasks-page-component .add-task #add-task-data-modal .task-details .task-details-input button {
   background-color: #5A68D4 !important;
@@ -281,6 +282,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 #display-tasks #tasks .task.done .task-info h4::before {
   width: 100%;
+}
+#display-tasks #tasks .task.done .task-info h4::after {
+  content: "done";
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-style: italic;
+  font-size: 16px;
+  font-weight: 500;
 }
 #display-tasks #tasks .task-show {
   animation: taskShow 0.5s 0s 1 linear;
