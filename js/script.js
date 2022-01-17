@@ -7,12 +7,14 @@ let modalBtn = document.querySelectorAll(".modal-btn"),
     modalCloseBtn = document.querySelectorAll(".modal-close-btn"),
     modalCloseBtnsArray = Array.from(modalCloseBtn)
 modalBtnsArray.forEach(btn => {
-    btn.onclick = e => {
+    btn.addEventListener("click", e => {
         let modalTarget = e.target.getAttribute("data-target")
         document.querySelector(`${modalTarget}`).classList.add("show")
-    }
+    })
+
 })
-modalCloseBtnsArray.forEach(btn => btn.onclick = e => e.target.parentElement.parentElement.parentElement.classList.remove("show"))
+modalCloseBtnsArray.forEach(btn => btn.addEventListener("click", (e) => e.target.parentElement.parentElement.parentElement.classList.remove("show")))
+
 window.onclick = e => e.target.classList.contains("modal") ? e.target.classList.remove("show") : ""
 
 // ========== agree and get started button ==========
@@ -42,7 +44,8 @@ todayDateDiv.innerHTML = `<h2 class="text-white fw-bold">${days[todayDate.getDay
 let taskDetailsInputs = document.querySelectorAll(".task-details-input input"),
     taskDetailsTextArea = document.querySelector(".task-details-input textarea"),
     taskSubmitBtn = document.querySelector(".task-details-input button"),
-    taskSuccessfullyAlert = document.querySelector(".task-details-input span")
+    taskSuccessfullyAlert = document.querySelector(".task-details-input span");
+
 taskDetailsInputs.forEach(input => {
     input.addEventListener("focusout", _ => {
         input.value ? input.classList.add("has-data") : input.classList.remove("has-data");
@@ -51,7 +54,7 @@ taskDetailsInputs.forEach(input => {
 taskDetailsTextArea.addEventListener("focusout", _ => {
     taskDetailsTextArea.value ? taskDetailsTextArea.classList.add("has-data") : taskDetailsTextArea.classList.remove("has-data");
 })
-//taskSubmitBtn.disabled = true /* to check inputs value with regex before submit => line 179 */
+
 taskSubmitBtn.onclick = _ => {
     taskSuccessfullyAlert.classList.replace("d-none", "d-inline")
     setTimeout(_ => {
@@ -69,11 +72,14 @@ let taskNameInput = document.getElementById("task-name-in"),
     taskCategoryInput = document.getElementById("task-category-in"),
     taskDetailsInput = document.getElementById("task-detail-in"),
     taskDisplayDiv = document.getElementById("tasks"),
-    tasks = null,
     taskEmptyAlert = document.getElementById("noTaskAlert"),
     taskDoneBtns = null /* prototype initialization will change after display*/,
+    taskEditBtns = null /* prototype initialization will change after display*/,
     taskDeleteBtns = null /* prototype initialization will change after display*/,
+    tasks = null, /* all tasks & value will change in display function */
+    tasksTiltes = null,/* all tasks tiltes & value will change in display function */
     tasksContainer;
+
 // check old or new user
 localStorage.getItem("tasks") == null ? tasksContainer = [] : tasksContainer = JSON.parse(localStorage.getItem("tasks"))
 tasksContainer.length > 0 ? taskEmptyAlert.classList.replace("d-block", "d-none") : taskEmptyAlert.classList.replace("d-none", "d-block")
@@ -118,9 +124,10 @@ function displayTasks() {
         
         <div class="task" task-id="${i}" task-finished=${tasksContainer[i].finished}>
                         <div class="task-info task-show d-flex justify-content-between align-items-center p-2 rounded-2">
-                            <h4 class=" m-0 text-capitalize position-relative">${i + 1}- ${tasksContainer[i].name}</h4>
+                            <h4 class="task-title m-0 text-capitalize position-relative">${i + 1}- ${tasksContainer[i].name}</h4>
                             <div class="task-btns">
-                                <i class="fas fa-check task-done me-1"></i>
+                                <i class="fas fa-check task-done me-2"></i>
+                                <i class="fas fa-pencil-alt task-edit me-2 bg-warning"></i>
                                 <i class="far fa-trash-alt task-delete" task-id="${i}"></i>
                             </div>
                         </div>
@@ -128,10 +135,11 @@ function displayTasks() {
     }
     taskDisplayDiv.innerHTML = taskDisplayContainer
     doneTask()
+    editTask()
     deleteTask()
     tasks = document.querySelectorAll("#tasks .task")
-    //taskFinishedAttr() /* i called it here to check after every display */
-
+    tasksTiltes = document.querySelectorAll(".task-info .task-title")
+    taskFinishedAttr() /* i called it here to check after every display */
 }
 window.onload = _ => { displayTasks(); taskFinishedAttr()/* i called it here to check automatic when load app */ }
 
@@ -159,6 +167,25 @@ function doneTask() { /*! get all buttons after display */
 function taskFinishedAttr() {
     tasks.forEach(task => {
         task.getAttribute("task-finished") == "false" ? task.classList.remove("done") : task.classList.add("done");
+    })
+}
+
+// ===== task edit part 
+function editTask() {
+    let currentTask = null,
+        editTaskContainerDiv = document.querySelector(".edit-task-container")
+    taskEditBtns = document.querySelectorAll("#tasks .task .task-btns .task-edit")
+    taskEditBtns.forEach(btn => {
+        btn.onclick = e => {
+            currentTask = e.target.parentElement.parentElement.parentElement.getAttribute("task-id");
+            editTaskContainerDiv.parentElement.classList.add("show")
+            editTaskContainerDiv.innerHTML = `  
+                            <div class="edit-task-form">
+                                <h2>${tasksContainer[currentTask].name}</h2>
+                                <h4>${tasksContainer[currentTask].category}</h4>
+                                <p>${tasksContainer[currentTask].details ? tasksContainer[currentTask].details : "empty"}</p>
+                            </div>`
+        }
     })
 }
 
@@ -218,4 +245,3 @@ function taskInputValid(inputAlert) {
 function taskInputInvalid(inputAlert) {
     inputAlert.classList.replace("d-none", "d-inline")
 }
-

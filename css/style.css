@@ -242,6 +242,13 @@ h1, h2, h3, h4, h5, h6 {
   background-color: white;
   position: relative;
 }
+#display-tasks #tasks .task .task-info h4 {
+  cursor: pointer;
+  transition: 0.2s;
+}
+#display-tasks #tasks .task .task-info h4:hover {
+  transform: translateX(5%);
+}
 #display-tasks #tasks .task .task-info h4::before {
   content: "";
   position: absolute;
@@ -292,6 +299,7 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
   font-size: 16px;
   font-weight: 500;
+  color: black !important;
 }
 #display-tasks #tasks .task-show {
   animation: taskShow 0.5s 0s 1 linear;
@@ -306,4 +314,23 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     opacity: 1;
   }
+}
+#edit-task {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  inset: 0;
+  transform: translateY(120%);
+  transition: 0.25s;
+}
+#edit-task .edit-task-container {
+  background-color: white;
+  padding: 14px;
+  border-radius: 10px;
+  width: 500px;
+  max-width: 100%;
+  position: relative;
+}
+
+#edit-task.show {
+  transform: translateY(0%);
 }/*# sourceMappingURL=style.css.map */

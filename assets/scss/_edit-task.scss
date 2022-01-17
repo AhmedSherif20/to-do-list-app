@@ -1,0 +1,22 @@
+#edit-task
+{
+    background-color: rgba($color: black, $alpha: 0.7);
+    position: absolute;
+    inset: 0;
+    transform: translateY(120%);
+    transition: 0.25s;
+    .edit-task-container
+    {
+        background-color: white;
+        padding:  14px;
+        border-radius: 10px;
+        width: 500px;
+        max-width: 100%;
+        position: relative;
+    }
+    
+}
+#edit-task.show
+{
+    transform: translateY(0%);
+}
